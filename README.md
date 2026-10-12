@@ -1,6 +1,7 @@
 # Smart Click - Cộng đồng Mua sắm Thông minh & An toàn
 > **Slogan:** "Click khôn ngoan – Mua an toàn" • "Khoan, check đã!"  
-> **Đơn vị đồng hành:** University of Transport Technology (UTT) & Cộng đồng Sinh viên toàn quốc
+> **Đơn vị đồng hành:** University of Transport Technology (UTT) & Cộng đồng Sinh viên toàn quốc  
+> **🌐 Trải nghiệm trực tuyến (Live Demo):** [https://ngquanh227-code.github.io/smart-click/](https://ngquanh227-code.github.io/smart-click/)
 
 ---
 

@@ -183,19 +183,18 @@ h1, h2, h3, h4, h5, h6, p, span, strong, a, button, label, li {
   align-items: center;
   justify-content: space-between;
   height: 68px;
-  gap: 8px;
+  gap: 16px;
 }
 
 .brand-wrapper {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 10px;
   text-decoration: none;
   color: inherit;
   cursor: pointer;
-  min-width: 0;
-  flex: 1;
-  max-width: 75%;
+  flex-shrink: 0;
+  z-index: 2;
 }
 
 .brand-logo-img {
@@ -216,8 +215,7 @@ h1, h2, h3, h4, h5, h6, p, span, strong, a, button, label, li {
 .brand-text-block {
   display: flex;
   flex-direction: column;
-  min-width: 0;
-  overflow: hidden;
+  flex-shrink: 0;
 }
 
 .brand-name {
@@ -232,24 +230,6 @@ h1, h2, h3, h4, h5, h6, p, span, strong, a, button, label, li {
   align-items: center;
   gap: 6px;
   white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-@media (max-width: 540px) {
-  .brand-sub {
-    display: none;
-  }
-  .brand-name {
-    font-size: 1.05rem;
-  }
-  .brand-slogan {
-    font-size: 0.65rem;
-  }
-  .brand-logo-img {
-    width: 36px;
-    height: 36px;
-  }
 }
 
 body.light-theme .brand-name {
@@ -264,30 +244,52 @@ body.light-theme .brand-name {
   font-weight: 700;
   letter-spacing: 0.04em;
   text-transform: uppercase;
+  white-space: nowrap;
 }
 
 .brand-sub {
   font-size: 0.68rem;
   color: var(--text-secondary);
+  white-space: nowrap;
+}
+
+@media (max-width: 1200px) {
+  .brand-sub {
+    display: none;
+  }
+}
+
+@media (max-width: 540px) {
+  .brand-name {
+    font-size: 1.05rem;
+  }
+  .brand-slogan {
+    font-size: 0.65rem;
+  }
+  .brand-logo-img {
+    width: 36px;
+    height: 36px;
+  }
 }
 
 /* Nav Desktop Links */
 .nav-desktop-links {
   display: none;
   align-items: center;
-  gap: 6px;
+  gap: 4px;
+  flex-shrink: 1;
 }
 
-@media (min-width: 992px) {
+@media (min-width: 1024px) {
   .nav-desktop-links {
     display: flex;
   }
 }
 
 .nav-link-btn {
-  padding: 8px 14px;
+  padding: 7px 11px;
   border-radius: var(--radius-full);
-  font-size: 0.88rem;
+  font-size: 0.82rem;
   font-weight: 600;
   color: var(--text-secondary);
   background: transparent;
@@ -296,7 +298,20 @@ body.light-theme .brand-name {
   transition: all var(--transition-fast);
   display: flex;
   align-items: center;
-  gap: 6px;
+  gap: 5px;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+@media (min-width: 1200px) {
+  .nav-desktop-links {
+    gap: 6px;
+  }
+  .nav-link-btn {
+    padding: 8px 14px;
+    font-size: 0.86rem;
+    gap: 6px;
+  }
 }
 
 .nav-link-btn:hover {
@@ -314,6 +329,7 @@ body.light-theme .brand-name {
   display: flex;
   align-items: center;
   gap: 10px;
+  flex-shrink: 0;
 }
 
 .icon-btn {
@@ -329,6 +345,7 @@ body.light-theme .brand-name {
   cursor: pointer;
   transition: all var(--transition-fast);
   position: relative;
+  flex-shrink: 0;
 }
 
 .icon-btn:hover {

@@ -380,7 +380,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 <span class="metric-label">Đổi trả</span>
               </div>
               <div class="metric-box">
-                <span class="metric-val high">${'★'.repeat(Math.round(shop.ratingPrice))}</span>
+                <span class="metric-val high"><i class="fa-solid fa-star" style="color: #f59e0b; font-size: 0.75rem;"></i> ${shop.ratingPrice}/5</span>
                 <span class="metric-label">Giá SV</span>
               </div>
             </div>
@@ -1150,34 +1150,56 @@ document.addEventListener("DOMContentLoaded", () => {
     ctx.font = "500 20px 'Plus Jakarta Sans', sans-serif";
     ctx.fillText("Chứng nhận đồng hành cùng chiến dịch Tiêu dùng Thông minh trao tặng cho:", width / 2, 270);
 
-    // 6. Student Name (Hero element)
+    // 6. Student Name (Hero element with dynamic font autoscaling)
+    let studentFontSize = 50;
+    ctx.font = `900 ${studentFontSize}px 'Outfit', sans-serif`;
+    while (ctx.measureText(studentName.toUpperCase()).width > (width - 260) && studentFontSize > 26) {
+      studentFontSize -= 2;
+      ctx.font = `900 ${studentFontSize}px 'Outfit', sans-serif`;
+    }
+    const studentWidth = ctx.measureText(studentName.toUpperCase()).width;
     ctx.fillStyle = "#ff8800";
-    ctx.font = "900 54px 'Outfit', sans-serif";
     ctx.fillText(studentName.toUpperCase(), width / 2, 345);
 
-    // Underline
+    // Underline sized precisely to student name
+    const underlineHalf = Math.min(Math.max(studentWidth / 2 + 25, 120), width / 2 - 80);
     ctx.strokeStyle = "#ff6b00";
     ctx.lineWidth = 4;
     ctx.beginPath();
-    ctx.moveTo(width / 2 - 250, 365);
-    ctx.lineTo(width / 2 + 250, 365);
+    ctx.moveTo(width / 2 - underlineHalf, 365);
+    ctx.lineTo(width / 2 + underlineHalf, 365);
     ctx.stroke();
 
-    // 7. University / Class
+    // 7. University / Class with autoscaling
+    let schoolFontSize = 24;
+    ctx.font = `bold ${schoolFontSize}px 'Plus Jakarta Sans', sans-serif`;
+    while (ctx.measureText(schoolName).width > (width - 220) && schoolFontSize > 16) {
+      schoolFontSize -= 1;
+      ctx.font = `bold ${schoolFontSize}px 'Plus Jakarta Sans', sans-serif`;
+    }
     ctx.fillStyle = "#e2e8f0";
-    ctx.font = "bold 24px 'Plus Jakarta Sans', sans-serif";
     ctx.fillText(schoolName, width / 2, 415);
 
-    // 8. Honor Title Badge
+    // 8. Honor Title Badge (Auto-fit badge width to text)
+    const titleText = `DANH HIỆU: ${honorTitle.toUpperCase()}`;
+    let titleFontSize = 24;
+    ctx.font = `800 ${titleFontSize}px 'Outfit', sans-serif`;
+    while (ctx.measureText(titleText).width > (width - 260) && titleFontSize > 18) {
+      titleFontSize -= 1;
+      ctx.font = `800 ${titleFontSize}px 'Outfit', sans-serif`;
+    }
+    const titleMetrics = ctx.measureText(titleText);
+    const badgeWidth = Math.min(Math.max(titleMetrics.width + 60, 420), width - 160);
+    const badgeX = (width - badgeWidth) / 2;
+
     ctx.fillStyle = "rgba(124, 58, 237, 0.4)";
-    ctx.fillRect(width / 2 - 320, 455, 640, 60);
+    ctx.fillRect(badgeX, 455, badgeWidth, 60);
     ctx.strokeStyle = "#7c3aed";
     ctx.lineWidth = 2;
-    ctx.strokeRect(width / 2 - 320, 455, 640, 60);
+    ctx.strokeRect(badgeX, 455, badgeWidth, 60);
 
     ctx.fillStyle = "#f8fafc";
-    ctx.font = "800 26px 'Outfit', sans-serif";
-    ctx.fillText(`DANH HIỆU: ${honorTitle.toUpperCase()}`, width / 2, 495);
+    ctx.fillText(titleText, width / 2, 493);
 
     // Description text
     ctx.fillStyle = "#94a3b8";

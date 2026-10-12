@@ -1,0 +1,853 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Smart Click - Cộng đồng Mua sắm Thông minh & An toàn | Click khôn ngoan – Mua an toàn</title>
+  <meta name="description" content="Nền tảng trực tuyến hỗ trợ sinh viên nhận diện rủi ro, kiểm chứng thông tin, đọc review thật và tránh bẫy lừa đảo khi mua sắm online. Slogan: Click khôn ngoan – Mua an toàn.">
+  <meta name="keywords" content="Smart Click, sinh viên tiêu dùng thông minh, mua sắm an toàn, UTT, bóc phốt lừa đảo, review thật review ảo">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/jpeg" href="assets/logo.jpg">
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Font Awesome 6 Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <!-- Canvas Confetti Library -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.2/dist/confetti.browser.min.js"></script>
+</head>
+<body>
+
+  <!-- Background Ambient Glow -->
+  <div class="bg-ambient-blob blob-1"></div>
+  <div class="bg-ambient-blob blob-2"></div>
+  <div class="bg-ambient-blob blob-3"></div>
+
+  <!-- Slogan Running Ticker -->
+  <div class="slogan-ticker" aria-hidden="true">
+    <div class="ticker-content">
+      <div class="ticker-item"><i class="fa-solid fa-bolt"></i> CLICK KHÔN NGOAN – MUA AN TOÀN</div>
+      <div class="ticker-item"><i class="fa-solid fa-hand"></i> KHOAN, CHECK ĐÃ!</div>
+      <div class="ticker-item"><i class="fa-solid fa-star"></i> ĐÁNH GIÁ 5 SAO CÓ CHẮC LÀ THẬT?</div>
+      <div class="ticker-item"><i class="fa-solid fa-tag"></i> GIÁ RẺ BẤT THƯỜNG CÓ CHẮC LÀ HỜI?</div>
+      <div class="ticker-item"><i class="fa-solid fa-shield-halved"></i> ĐỒNG HÀNH CÙNG SINH VIÊN TOÀN QUỐC</div>
+      <div class="ticker-item"><i class="fa-solid fa-graduation-cap"></i> CHIẾN DỊCH TRUYỀN THÔNG UTT 2026</div>
+      
+      <!-- Duplicate for endless loop -->
+      <div class="ticker-item"><i class="fa-solid fa-bolt"></i> CLICK KHÔN NGOAN – MUA AN TOÀN</div>
+      <div class="ticker-item"><i class="fa-solid fa-hand"></i> KHOAN, CHECK ĐÃ!</div>
+      <div class="ticker-item"><i class="fa-solid fa-star"></i> ĐÁNH GIÁ 5 SAO CÓ CHẮC LÀ THẬT?</div>
+      <div class="ticker-item"><i class="fa-solid fa-tag"></i> GIÁ RẺ BẤT THƯỜNG CÓ CHẮC LÀ HỜI?</div>
+      <div class="ticker-item"><i class="fa-solid fa-shield-halved"></i> ĐỒNG HÀNH CÙNG SINH VIÊN TOÀN QUỐC</div>
+      <div class="ticker-item"><i class="fa-solid fa-graduation-cap"></i> CHIẾN DỊCH TRUYỀN THÔNG UTT 2026</div>
+    </div>
+  </div>
+
+  <!-- Top Sticky Navigation -->
+  <header class="smart-navbar">
+    <div class="container navbar-content">
+      <div class="brand-wrapper" data-nav-target="home">
+        <img src="assets/logo.jpg" alt="Smart Click Logo" class="brand-logo-img">
+        <div class="brand-text-block">
+          <span class="brand-name">SMART CLICK <span style="font-size: 0.8rem;">🚀</span></span>
+          <span class="brand-slogan">Click khôn ngoan – Mua an toàn</span>
+          <span class="brand-sub">Cộng đồng Tiêu dùng Thông minh Sinh viên</span>
+        </div>
+      </div>
+
+      <!-- Desktop Links -->
+      <nav class="nav-desktop-links" aria-label="Main Navigation">
+        <button class="nav-link-btn active" data-tab="home">
+          <i class="fa-solid fa-house"></i> Trang Chủ
+        </button>
+        <button class="nav-link-btn" data-tab="shops">
+          <i class="fa-solid fa-store"></i> Top Shop & Vote
+        </button>
+        <button class="nav-link-btn" data-tab="drama">
+          <i class="fa-solid fa-triangle-exclamation"></i> Bóc Phốt & Drama
+        </button>
+        <button class="nav-link-btn" data-tab="minigame">
+          <i class="fa-solid fa-gamepad"></i> Minigame & Quiz
+        </button>
+        <button class="nav-link-btn" data-tab="certificate">
+          <i class="fa-solid fa-certificate"></i> Nhận Chứng Nhận
+        </button>
+        <button class="nav-link-btn" data-tab="handbook">
+          <i class="fa-solid fa-book-open"></i> Cẩm Nang 30s
+        </button>
+      </nav>
+
+      <!-- Navbar Actions -->
+      <div class="navbar-actions">
+        <button class="icon-btn" id="themeToggleBtn" title="Chuyển chế độ Sáng / Tối" aria-label="Toggle theme">
+          <i class="fa-solid fa-sun"></i>
+        </button>
+
+        <button class="btn-cta-nav" data-nav-target="minigame">
+          <i class="fa-solid fa-fire"></i> Thử Thách Quiz
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- MAIN APP CONTAINER -->
+  <main class="container">
+
+    <!-- ====================================================================
+         1. TRANG CHỦ (HERO & QUICK SURVEY & REAL-TIME STATS)
+         ==================================================================== -->
+    <section class="tab-section active" id="section-home">
+      
+      <!-- Hero Banner Card with Authentic Graphic -->
+      <div class="hero-wrapper">
+        <div class="hero-banner-card">
+          <img src="assets/banner.png" alt="Smart Click Banner UTT" class="hero-banner-img">
+          <div class="hero-content-overlay">
+            <div class="hero-badge-row">
+              <span class="tag-pill utt"><i class="fa-solid fa-graduation-cap"></i> UTT Initiative</span>
+              <span class="tag-pill live"><i class="fa-solid fa-circle"></i> 3.8k+ Sinh viên tham gia</span>
+              <span class="tag-pill hot"><i class="fa-solid fa-shield"></i> Chống Lừa Đảo Online</span>
+            </div>
+
+            <h1 class="hero-title">
+              Click <span class="highlight-orange">Khôn Ngoan</span> – Mua Sắm <span class="highlight-blue">An Toàn</span>
+            </h1>
+
+            <p class="hero-desc">
+              Một cú click có thể là một món hời, nhưng cũng có thể là một lần <strong>"mua hớ"</strong>! 
+              Nền tảng trực tuyến giúp sinh viên kiểm chứng uy tín shop, soi bẫy review ảo và bảo vệ từng đồng tiền sinh hoạt.
+            </p>
+
+            <!-- 3 Core Pillars matching the official campaign banner -->
+            <div class="hero-pillars-grid">
+              <div class="pillar-item">
+                <div class="pillar-icon risk"><i class="fa-solid fa-shield-virus"></i></div>
+                <div>
+                  <div class="pillar-title">Nhận Diện Rủi Ro</div>
+                  <div class="pillar-sub">Bắt bài 99% chiêu trò gian thương</div>
+                </div>
+              </div>
+
+              <div class="pillar-item">
+                <div class="pillar-icon verify"><i class="fa-solid fa-magnifying-glass-chart"></i></div>
+                <div>
+                  <div class="pillar-title">Kiểm Chứng Thông Tin</div>
+                  <div class="pillar-sub">Soi review có ảnh thật & giá sàn</div>
+                </div>
+              </div>
+
+              <div class="pillar-item">
+                <div class="pillar-icon smart"><i class="fa-solid fa-seedling"></i></div>
+                <div>
+                  <div class="pillar-title">Tiêu Dùng Có Trách Nhiệm</div>
+                  <div class="pillar-sub">Xây dựng cộng đồng SV nói không với lừa đảo</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="hero-actions-row">
+              <button class="btn btn-primary" data-nav-target="shops">
+                <i class="fa-solid fa-list-check"></i> Xem BXH Shop Sinh Viên Tin Dùng
+              </button>
+              <button class="btn btn-secondary" data-nav-target="minigame">
+                <i class="fa-solid fa-gamepad"></i> Chơi Minigame Bóc Review Ảo
+              </button>
+              <a href="#quickSurveyBlock" class="btn btn-secondary">
+                <i class="fa-solid fa-chart-pie"></i> Tham Gia Khảo Sát Nhanh
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Campaign Highlight Poster Block ("Khoan, check đã!") -->
+      <div class="poster-highlight-card">
+        <div class="poster-preview-wrapper">
+          <img src="assets/poster.jpg" alt="Poster Khoan Check Đã Smart Click" class="poster-img">
+        </div>
+        <div class="poster-info">
+          <span class="tag-pill hot" style="margin-bottom: 8px;"><i class="fa-solid fa-triangle-exclamation"></i> Thông Điệp Chiến Dịch</span>
+          <h3>BẠN ĐANG ĐỊNH CLICK? KHOAN, CHECK ĐÃ!</h3>
+          <p>
+            Trước khi vội vã bấm "Mua ngay" vì một mã giảm giá chớp nhoáng, hãy tự hỏi bản thân 3 câu hỏi cứu ví tiền của sinh viên:
+          </p>
+
+          <ul class="poster-checklist-bullets">
+            <li>
+              <span class="bullet-icon purple"><i class="fa-solid fa-star"></i></span>
+              <span><strong>Đánh giá 5 sao</strong> có chắc là người mua thật hay bot seeding?</span>
+            </li>
+            <li>
+              <span class="bullet-icon orange"><i class="fa-solid fa-tag"></i></span>
+              <span><strong>Giá rẻ bất thường (-70%, -80%)</strong> có chắc là hời hay nhận về giẻ lau?</span>
+            </li>
+            <li>
+              <span class="bullet-icon blue"><i class="fa-solid fa-store"></i></span>
+              <span><strong>Hàng chục ngàn lượt mua</strong> có chắc shop uy tín hay đơn ảo buff số?</span>
+            </li>
+          </ul>
+
+          <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+            <button class="btn btn-primary btn-sm" data-nav-target="handbook">
+              <i class="fa-solid fa-book-open"></i> Xem 5 Bước Checklist Mua Sắm Bỏ Túi
+            </button>
+            <button class="btn btn-secondary btn-sm" data-nav-target="drama">
+              <i class="fa-solid fa-bullhorn"></i> Xem Các Vụ Bóc Phốt Mới Nhất
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Quick Survey & Real-time Shocking Stats -->
+      <div class="survey-section-card" id="quickSurveyBlock">
+        <div class="section-header">
+          <div class="section-eyebrow"><i class="fa-solid fa-square-poll-vertical"></i> Khảo sát nhanh tương tác</div>
+          <h2 class="section-title">Sinh Viên Chúng Mình Mua Sắm Online Thế Nào?</h2>
+          <p class="section-subtitle">Hãy vote thật lòng 3 câu hỏi bên dưới để xem kết quả thống kê giật mình của toàn bộ sinh viên nhé!</p>
+        </div>
+
+        <div class="survey-grid-layout">
+          <!-- 3 Questions Form -->
+          <div class="survey-questions-box">
+            <div id="surveyQuestionsList">
+              <!-- Rendered via app.js -->
+            </div>
+
+            <button class="btn btn-primary" id="submitSurveyBtn" style="width: 100%; margin-top: 8px;">
+              <i class="fa-solid fa-paper-plane"></i> Gửi Bình Chọn & Cập Nhật Biểu Đồ Real-time
+            </button>
+          </div>
+
+          <!-- Real-Time Stats Display -->
+          <div class="survey-stats-panel">
+            <div>
+              <div class="stats-panel-header">
+                <span class="stats-title"><i class="fa-solid fa-chart-simple" style="color: var(--brand-orange)"></i> Thống Kê Real-time</span>
+                <span class="stats-badge-live"><i class="fa-solid fa-circle"></i> Trực tiếp</span>
+              </div>
+
+              <!-- Shock Alert Banner -->
+              <div class="shock-alert-box">
+                <i class="fa-solid fa-triangle-exclamation shock-icon"></i>
+                <div class="shock-text">
+                  <strong>😱 85% Sinh viên từng nhận hàng khác xa quảng cáo!</strong>
+                  <span>Số đông từng chịu cảnh "ảnh người mẫu - hàng phế liệu". Hãy cẩn trọng hơn bao giờ hết!</span>
+                </div>
+              </div>
+
+              <!-- Dynamic Progress Bars -->
+              <div class="stat-bars-container" id="statBarsContainer">
+                <!-- Rendered dynamically via app.js -->
+              </div>
+            </div>
+
+            <div class="stats-footer-meta">
+              <i class="fa-solid fa-users"></i> Tổng cộng <strong id="totalSurveyVotes" style="color: var(--text-primary)">3.842</strong> lượt sinh viên đã tham gia khảo sát
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- ====================================================================
+         2. CỘNG ĐỒNG BÌNH CHỌN SHOP & SẢN PHẨM UY TÍN
+         ==================================================================== -->
+    <section class="tab-section" id="section-shops">
+      <div class="section-header">
+        <div class="section-eyebrow"><i class="fa-solid fa-ranking-star"></i> Crowd-sourced Shop Directory</div>
+        <h2 class="section-title">Bảng Xếp Hạng Shop Do Sinh Viên Bình Chọn</h2>
+        <p class="section-subtitle">Tổng hợp các gian hàng được sinh viên trải nghiệm thực tế, phân loại minh bạch: Uy tín, Cân nhắc, và Góc Cảnh Báo.</p>
+      </div>
+
+      <!-- Filters & Search Toolbar -->
+      <div class="filters-bar">
+        <div class="search-input-wrapper">
+          <i class="fa-solid fa-magnifying-glass search-icon"></i>
+          <input type="text" class="search-input" id="shopSearchInput" placeholder="Tìm tên shop, phụ kiện, thời trang, sách...">
+        </div>
+
+        <button class="btn btn-primary btn-sm" id="addShopBtn">
+          <i class="fa-solid fa-plus"></i> Đề Cử / Cảnh Báo Shop Mới
+        </button>
+      </div>
+
+      <!-- Category Filter Chips -->
+      <div style="margin-bottom: 12px;">
+        <span style="font-size: 0.76rem; color: var(--text-muted); font-weight: 700; margin-bottom: 6px; display: block;">NGÀNH HÀNG:</span>
+        <div class="filter-tags-scroll">
+          <button class="filter-chip active" data-filter-type="cat" data-filter-value="all">Tất cả ngành hàng</button>
+          <button class="filter-chip" data-filter-type="cat" data-filter-value="tech">📱 Đồ công nghệ</button>
+          <button class="filter-chip" data-filter-type="cat" data-filter-value="fashion">👕 Quần áo thời trang</button>
+          <button class="filter-chip" data-filter-type="cat" data-filter-value="home">🏠 Gia dụng & Decor KTX</button>
+          <button class="filter-chip" data-filter-type="cat" data-filter-value="books">📚 Sách & Giáo trình</button>
+          <button class="filter-chip" data-filter-type="cat" data-filter-value="cosmetics">💄 Mỹ phẩm & Skincare</button>
+        </div>
+      </div>
+
+      <!-- Tag Filter Chips -->
+      <div style="margin-bottom: 24px;">
+        <span style="font-size: 0.76rem; color: var(--text-muted); font-weight: 700; margin-bottom: 6px; display: block;">MỨC ĐỘ UY TÍN:</span>
+        <div class="filter-tags-scroll">
+          <button class="filter-chip active" data-filter-type="tag" data-filter-value="all">Tất cả</button>
+          <button class="filter-chip tag-safe" data-filter-type="tag" data-filter-value="safe">🟢 Shop Sinh Viên Tin Dùng</button>
+          <button class="filter-chip tag-warning" data-filter-type="tag" data-filter-value="warning">🟡 Cần Cân Nhắc</button>
+          <button class="filter-chip tag-blacklist" data-filter-type="tag" data-filter-value="blacklist">🔴 Góc Cảnh Báo / Blacklist</button>
+        </div>
+      </div>
+
+      <!-- Shops Grid -->
+      <div class="shops-grid" id="shopsGrid">
+        <!-- Rendered dynamically via app.js -->
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         3. GÓC BÓC PHỐT & CẢNH BÁO LỪA ĐẢO (DRAMA ZONE)
+         ==================================================================== -->
+    <section class="tab-section" id="section-drama">
+      <div class="section-header">
+        <div class="section-eyebrow"><i class="fa-solid fa-shield-virus"></i> Drama & Scam Alert Zone</div>
+        <h2 class="section-title">Góc Bóc Phốt & Cảnh Báo Lừa Đảo</h2>
+        <p class="section-subtitle">Nơi sinh viên chia sẻ trải nghiệm mua hàng rủi ro, bẫy cọc, hàng giả. Mỗi bài viết đều có lời khuyên bảo vệ từ Smart Click.</p>
+      </div>
+
+      <div class="drama-header-bar">
+        <div>
+          <span class="tag-pill hot"><i class="fa-solid fa-lock"></i> Hỗ trợ Đăng Ẩn Danh 100%</span>
+          <span style="font-size: 0.8rem; color: var(--text-muted); margin-left: 8px;">Bảo mật danh tính sinh viên khi tố cáo gian thương</span>
+        </div>
+        <button class="btn btn-danger btn-sm" id="openDramaModalBtn">
+          <i class="fa-solid fa-bullhorn"></i> Đăng Bài Cảnh Báo Mới
+        </button>
+      </div>
+
+      <!-- Drama Posts Feed -->
+      <div class="drama-feed-list" id="dramaFeedList">
+        <!-- Rendered dynamically via app.js -->
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         4. THỬ THÁCH MINIGAME & QUIZ TƯƠNG TÁC
+         ==================================================================== -->
+    <section class="tab-section" id="section-minigame">
+      <div class="section-header">
+        <div class="section-eyebrow"><i class="fa-solid fa-gamepad"></i> Interactive Challenges</div>
+        <h2 class="section-title">Thử Thách: "Người Mua Hàng Tỉnh Táo"</h2>
+        <p class="section-subtitle">Luyện mắt phát hiện seeding review ảo và trắc nghiệm 10 câu tình huống thực chiến. Đạt &gt; 8/10 sẽ mở khóa Chứng nhận xịn sò!</p>
+      </div>
+
+      <!-- Minigame Sub Tabs -->
+      <div class="minigame-tabs-nav">
+        <button class="minigame-nav-btn active" id="subnavBattleBtn">
+          <i class="fa-solid fa-eye"></i> Minigame 1: Review Thật Hay Review Ảo?
+        </button>
+        <button class="minigame-nav-btn" id="subnavQuizBtn">
+          <i class="fa-solid fa-clipboard-question"></i> Minigame 2: Quiz 10 Câu Thực Chiến
+        </button>
+      </div>
+
+      <!-- VIEW 1: BATTLE REVIEW THẬT VS REVIEW ẢO -->
+      <div id="viewBattleMode">
+        <div class="battle-container">
+          <div class="battle-meta-header">
+            <div style="display: flex; justify-content: center; gap: 14px; margin-bottom: 10px;">
+              <span class="tag-pill hot"><i class="fa-solid fa-fire"></i> Vòng: <strong id="battleCurrentRound">1/3</strong></span>
+              <span class="tag-pill live"><i class="fa-solid fa-trophy"></i> Điểm: <strong id="battleScoreVal">0</strong></span>
+              <span class="tag-pill utt"><i class="fa-solid fa-bolt"></i> Chuỗi đúng: <strong id="battleStreakVal">0</strong></span>
+            </div>
+            <h3 class="battle-product-title" id="battleProductTitle">Vòng 1: Tai nghe True Wireless ANC 149k</h3>
+            <p class="battle-instruction">Quan sát kỹ 2 mẫu review A và B. Hãy bấm chọn mẫu nào là <strong>REVIEW THẬT</strong> đáng tin cậy!</p>
+          </div>
+
+          <div class="battle-versus-grid">
+            <div class="vs-badge-floating">VS</div>
+            
+            <!-- Choice A -->
+            <div id="reviewCardA" class="review-choice-card">
+              <!-- Rendered via app.js -->
+            </div>
+
+            <!-- Choice B -->
+            <div id="reviewCardB" class="review-choice-card">
+              <!-- Rendered via app.js -->
+            </div>
+          </div>
+
+          <!-- Feedback Box after choice -->
+          <div id="battleFeedbackBox" class="battle-feedback-box">
+            <!-- Rendered via app.js -->
+          </div>
+        </div>
+      </div>
+
+      <!-- VIEW 2: QUIZ 10 CÂU TRẮC NGHIỆM -->
+      <div id="viewQuizMode" style="display: none;">
+        <div class="quiz-container">
+          <div class="quiz-progress-bar-wrapper">
+            <div class="quiz-meta-row">
+              <span id="quizProgressLabel">Câu 1/10</span>
+              <span id="quizCurrentScore" style="color: var(--brand-orange)">Điểm: 0/10</span>
+            </div>
+            <div class="quiz-track">
+              <div class="quiz-fill" id="quizProgressFill"></div>
+            </div>
+          </div>
+
+          <h3 class="quiz-question-heading" id="quizQuestionTitle">
+            1. Bạn thấy bài đăng trên mạng: 'Xả kho iPhone 15 Pro Max chỉ cần thanh toán cước vận chuyển 180k'. Hành động chuẩn nhất là gì?
+          </h3>
+
+          <div class="quiz-options-grid" id="quizOptionsGrid">
+            <!-- Rendered via app.js -->
+          </div>
+
+          <div class="quiz-explanation-box" id="quizExplanationBox">
+            <!-- Rendered via app.js -->
+          </div>
+
+          <div class="quiz-footer-actions">
+            <button class="btn btn-primary" id="quizNextBtn" style="display: none;">
+              Câu Tiếp Theo <i class="fa-solid fa-arrow-right"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- ====================================================================
+         5. TẠO & CHIA SẺ CHỨNG NHẬN (CERTIFICATE GENERATOR)
+         ==================================================================== -->
+    <section class="tab-section" id="section-certificate">
+      <div class="section-header">
+        <div class="section-eyebrow"><i class="fa-solid fa-award"></i> Certificate Generator</div>
+        <h2 class="section-title">Nhận Chứng Nhận "Người Mua Hàng Tỉnh Táo"</h2>
+        <p class="section-subtitle">Tùy biến tên của bạn để tạo Chứng Nhận Điện Tử độc bản mang đậm dấu ấn Smart Click. Tải ảnh HD về máy hoặc chia sẻ lên Story ngay!</p>
+      </div>
+
+      <div class="cert-wrapper">
+        <!-- Form Settings Card -->
+        <div class="cert-form-card">
+          <h3 style="font-size: 1.1rem; font-weight: 800; margin-bottom: 14px; color: var(--brand-orange);">
+            <i class="fa-solid fa-pen-to-square"></i> Thông Tin Chứng Nhận
+          </h3>
+
+          <div class="form-group">
+            <label class="form-label" for="certStudentName">Họ và Tên Sinh Viên:</label>
+            <input type="text" class="form-input" id="certStudentName" value="Nguyễn Văn Nam" placeholder="Nhập họ tên của bạn...">
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="certSchoolName">Trường / Khoa / Lớp:</label>
+            <input type="text" class="form-input" id="certSchoolName" value="Đại học Công nghệ Giao thông Vận tải (UTT)" placeholder="Nhập tên trường của bạn...">
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="certHonorTitle">Danh Hiệu Vinh Danh:</label>
+            <select class="form-select" id="certHonorTitle">
+              <option value="Chiến Thần Tiêu Dùng Tỉnh Táo">👑 Chiến Thần Tiêu Dùng Tỉnh Táo</option>
+              <option value="Bậc Thầy Vạch Trần Review Ảo">🔍 Bậc Thầy Vạch Trần Review Ảo</option>
+              <option value="Chuyên Gia Săn Deal An Toàn">🛡️ Chuyên Gia Săn Deal An Toàn</option>
+              <option value="Đại Sứ Mua Sắm Thông Minh UTT">🎓 Đại Sứ Mua Sắm Thông Minh UTT</option>
+            </select>
+          </div>
+
+          <div style="background: rgba(37, 99, 235, 0.1); border: 1px solid rgba(37, 99, 235, 0.3); border-radius: var(--radius-md); padding: 12px; margin-bottom: 18px;">
+            <span style="font-size: 0.8rem; color: #93c5fd; display: block;">
+              <i class="fa-solid fa-circle-info"></i> Ảnh chứng nhận được render trực tiếp chuẩn kích thước HD, có mã số tra cứu độc bản và mộc mác Verified của Smart Click!
+            </span>
+          </div>
+
+          <button class="btn btn-primary" id="downloadCertBtn" style="width: 100%; margin-bottom: 10px;">
+            <i class="fa-solid fa-download"></i> Tải Ảnh Chứng Nhận Về Máy (PNG HD)
+          </button>
+
+          <button class="btn btn-secondary" id="shareCertBtn" style="width: 100%;">
+            <i class="fa-solid fa-share-nodes"></i> Copy Caption & Hashtag Chia Sẻ Story
+          </button>
+
+          <div class="campaign-hashtags-box">
+            #ClickKhonNgoanMuaAnToan #SinhVienTieuDungThongMinh #CheckTruocKhiMua #SmartClick #KhoanCheckDa
+          </div>
+        </div>
+
+        <!-- Live Canvas Preview Card -->
+        <div class="cert-preview-card">
+          <div class="cert-canvas-container">
+            <canvas id="certificateCanvas" width="1200" height="800"></canvas>
+          </div>
+          <span style="font-size: 0.78rem; color: var(--text-muted);">
+            <i class="fa-solid fa-check-double"></i> Xem trước trực tiếp • Đã đồng bộ với nội dung bạn nhập
+          </span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         6. CẨM NANG MUA SẮM 30S (RESOURCE HUB)
+         ==================================================================== -->
+    <section class="tab-section" id="section-handbook">
+      <div class="section-header">
+        <div class="section-eyebrow"><i class="fa-solid fa-book-bookmark"></i> Resource Hub</div>
+        <h2 class="section-title">Cẩm Nang Mua Sắm 30s</h2>
+        <p class="section-subtitle">Bộ bí kíp bỏ túi 5 bước, giải mã 6 chiêu trò lừa đảo kinh điển và công cụ đo lường mức độ rủi ro của deal hàng.</p>
+      </div>
+
+      <!-- 5-Step Checklist Card -->
+      <div class="checklist-container">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;">
+          <div>
+            <h3 style="font-family: var(--font-display); font-size: 1.2rem; font-weight: 800; color: var(--brand-orange);">
+              <i class="fa-solid fa-list-check"></i> Bộ Checklist 5 Bước Phòng Vệ Bỏ Túi
+            </h3>
+            <span style="font-size: 0.82rem; color: var(--text-secondary);">Chạm vào từng bước để đánh dấu hoàn thành trước khi thanh toán</span>
+          </div>
+          <span class="tag-pill live" id="checklistDoneCount">0/5 bước hoàn tất</span>
+        </div>
+
+        <div class="checklist-steps-list" id="checklistStepsContainer">
+          <!-- Rendered via app.js -->
+        </div>
+      </div>
+
+      <!-- 6 Flippable 3D Flashcards of Deceptive Tricks -->
+      <div style="margin-bottom: 36px;">
+        <div class="section-header" style="text-align: left; margin-bottom: 18px;">
+          <h3 style="font-family: var(--font-display); font-size: 1.25rem; font-weight: 800; color: var(--text-primary);">
+            <i class="fa-solid fa-mask" style="color: var(--status-danger)"></i> Giải Mã 6 Chiêu Trò Gian Thương (Lật Thẻ 3D)
+          </h3>
+          <p style="font-size: 0.84rem; color: var(--text-secondary);">Chạm vào bất kỳ thẻ nào để lật mặt sau xem cách gian thương giăng bẫy và bí kíp đối phó.</p>
+        </div>
+
+        <div class="flashcards-grid" id="flashcardsGrid">
+          <!-- Rendered via app.js -->
+        </div>
+      </div>
+
+      <!-- Tool: Deal Risk Calculator -->
+      <div class="calculator-card">
+        <div class="section-header" style="text-align: left; margin-bottom: 20px;">
+          <div class="section-eyebrow"><i class="fa-solid fa-calculator"></i> Công Cụ Độc Quyền</div>
+          <h3 style="font-family: var(--font-display); font-size: 1.4rem; font-weight: 800;">
+            Máy Đo Độ Rủi Ro Của Deal (Deal Risk Calculator)
+          </h3>
+          <p style="font-size: 0.88rem; color: var(--text-secondary);">Nhập thông số của món đồ bạn đang định chốt để máy tính toán xem có đáng tin cậy không nhé!</p>
+        </div>
+
+        <div class="calc-grid">
+          <!-- Input Controls -->
+          <div style="display: flex; flex-direction: column; gap: 16px;">
+            <div class="form-group">
+              <label class="form-label" style="display: flex; justify-content: space-between;">
+                <span>Mức giảm giá của sản phẩm:</span>
+                <strong id="discountDisplayVal" style="color: var(--brand-orange)">70%</strong>
+              </label>
+              <input type="range" id="calcDiscount" min="0" max="95" value="70" step="5" style="width: 100%; accent-color: var(--brand-orange);">
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Tuổi đời & Uy tín của shop:</label>
+              <select class="form-select" id="calcShopAge">
+                <option value="35">Mới tạo dưới 1 tháng (0-50 đánh giá)</option>
+                <option value="15" selected>Hoạt động từ 1 - 6 tháng</option>
+                <option value="0">Shop Mall / Hoạt động trên 1 năm uy tín</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Chất lượng đánh giá của người mua:</label>
+              <select class="form-select" id="calcPhotoReview">
+                <option value="30">Toàn 5 sao chung chung, không có ảnh chụp thực tế</option>
+                <option value="10" selected>Có một số ảnh thật nhưng lẫn lộn nhiều nick lạ</option>
+                <option value="-10">Nhiều review 1-4 sao chân thực, có video unbox chi tiết</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Kênh thanh toán & Giao dịch:</label>
+              <select class="form-select" id="calcPaymentMethod">
+                <option value="45">Chuyển khoản cọc trước qua Zalo / Facebook / Ngoài sàn</option>
+                <option value="10" selected>Ship COD nhưng không cho đồng kiểm</option>
+                <option value="-15">Thanh toán qua ví/sàn được giữ tiền bảo vệ (Shopee, TikTok, Lazada)</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Dynamic Output Meter -->
+          <div class="calc-meter-box">
+            <div class="meter-gauge-circle" id="meterCircle">
+              <div class="meter-score" id="meterRiskScore">75%</div>
+              <div class="meter-unit">Độ rủi ro</div>
+            </div>
+
+            <div class="meter-verdict" id="meterVerdict">🔴 CỰC KỲ NGUY HIỂM</div>
+            <p class="meter-advice-text" id="meterAdvice">
+              KHOAN, DỪNG LẠI! Mức giảm giá bất thường hoặc yêu cầu ngoài sàn này 90% là bẫy giăng cho sinh viên!
+            </p>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+  </main>
+
+  <!-- ====================================================================
+       MODALS & POPUPS
+       ==================================================================== -->
+
+  <!-- 1. Modal Soi Nhanh 30s Shop -->
+  <div class="modal-backdrop" id="shopPeekModal" role="dialog" aria-modal="true">
+    <div class="modal-container">
+      <div class="modal-header">
+        <h3 class="modal-title" id="peekModalTitle">Soi Nhanh 30s</h3>
+        <button class="modal-close-btn" aria-label="Close modal"><i class="fa-solid fa-xmark"></i></button>
+      </div>
+      <div id="peekModalContent"></div>
+    </div>
+  </div>
+
+  <!-- 2. Modal Đề Cử Shop Mới -->
+  <div class="modal-backdrop" id="addShopModal" role="dialog" aria-modal="true">
+    <div class="modal-container">
+      <div class="modal-header">
+        <h3 class="modal-title"><i class="fa-solid fa-store" style="color: var(--brand-orange)"></i> Đề Cử / Cảnh Báo Shop Mới</h3>
+        <button class="modal-close-btn" aria-label="Close modal"><i class="fa-solid fa-xmark"></i></button>
+      </div>
+      <form id="addShopForm">
+        <div class="form-group">
+          <label class="form-label" for="newShopName">Tên Shop / Thương Hiệu:</label>
+          <input type="text" class="form-input" id="newShopName" required placeholder="Ví dụ: Phụ Kiện SV GenZ">
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="newShopPlatform">Nền Tảng Bán Hàng:</label>
+          <select class="form-select" id="newShopPlatform">
+            <option value="Shopee">Shopee</option>
+            <option value="TikTok Shop">TikTok Shop</option>
+            <option value="Lazada">Lazada</option>
+            <option value="Instagram / Facebook">Instagram / Facebook</option>
+            <option value="Website Khác">Website Khác</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="newShopCat">Ngành Hàng:</label>
+          <select class="form-select" id="newShopCat">
+            <option value="tech">Đồ công nghệ & Cáp sạc</option>
+            <option value="fashion">Quần áo & Thời trang</option>
+            <option value="home">Gia dụng & Decor KTX</option>
+            <option value="books">Sách & Giáo trình</option>
+            <option value="cosmetics">Mỹ phẩm & Chăm sóc da</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="newShopTag">Phân Loại Đánh Giá:</label>
+          <select class="form-select" id="newShopTag">
+            <option value="safe">🟢 Shop Sinh Viên Tin Dùng</option>
+            <option value="warning">🟡 Cần Cân Nhắc</option>
+            <option value="blacklist">🔴 Góc Cảnh Báo / Blacklist</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="newShopDesc">Mô Tả Ngắn & Trải Nghiệm:</label>
+          <textarea class="form-input" id="newShopDesc" rows="2" required placeholder="Mặt hàng chủ lực, giá cả, thái độ phục vụ..."></textarea>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="newShopPros">Điểm Cộng:</label>
+          <input type="text" class="form-input" id="newShopPros" placeholder="Ví dụ: Giao nhanh 1 ngày, cáp sạc có bảo hành 1 đổi 1">
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="newShopCons">Điểm Trừ (Nếu có):</label>
+          <input type="text" class="form-input" id="newShopCons" placeholder="Ví dụ: Hộp đóng gói hơi méo">
+        </div>
+
+        <button type="submit" class="btn btn-primary" style="width: 100%;">
+          <i class="fa-solid fa-paper-plane"></i> Gửi Đề Cử Lên Cộng Đồng
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- 3. Modal Đăng Bài Cảnh Báo (Drama Post) -->
+  <div class="modal-backdrop" id="createDramaModal" role="dialog" aria-modal="true">
+    <div class="modal-container">
+      <div class="modal-header">
+        <h3 class="modal-title"><i class="fa-solid fa-bullhorn" style="color: var(--status-danger)"></i> Đăng Bài Cảnh Báo Lừa Đảo</h3>
+        <button class="modal-close-btn" aria-label="Close modal"><i class="fa-solid fa-xmark"></i></button>
+      </div>
+      <form id="createDramaForm">
+        <div class="form-group" style="background: rgba(255, 107, 0, 0.1); padding: 10px; border-radius: var(--radius-md);">
+          <label style="display: flex; align-items: center; gap: 8px; font-weight: 700; font-size: 0.85rem; cursor: pointer;">
+            <input type="checkbox" id="dramaAnonCheck" checked style="accent-color: var(--brand-orange); width: 16px; height: 16px;">
+            <span>🛡️ BẬT CHẾ ĐỘ ĐĂNG ẨN DANH (Bảo vệ thông tin cá nhân của bạn)</span>
+          </label>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="dramaAuthorName">Tên Hiển Thị (Nếu không ẩn danh):</label>
+          <input type="text" class="form-input" id="dramaAuthorName" placeholder="Ví dụ: Hoàng Nam (K64 UTT)">
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="dramaShopName">Tên Shop Bị Tố Cáo / Link Shop:</label>
+          <input type="text" class="form-input" id="dramaShopName" required placeholder="Ví dụ: Shop Giày Xả Kho 19k (TikTok)">
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="dramaCategory">Thể Loại Bẫy / Chiêu Trò:</label>
+          <select class="form-select" id="dramaCategory">
+            <option value="Hàng giả / fake tinh vi">Hàng giả / fake tinh vi</option>
+            <option value="Bùng cọc / Lừa chuyển khoản">Bùng cọc / Lừa chuyển khoản</option>
+            <option value="Treo đầu dê bán thịt chó">Treo đầu dê bán thịt chó</option>
+            <option value="Quà tặng 0đ thu cước khủng">Quà tặng 0đ thu cước khủng</option>
+            <option value="Đổi trả bị chặn số">Đổi trả bị chặn số</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="dramaAmount">Số Tiền Thiệt Hại (VNĐ):</label>
+          <input type="text" class="form-input" id="dramaAmount" placeholder="Ví dụ: 350.000 VNĐ">
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="dramaTitle">Tiêu Đề Cảnh Báo:</label>
+          <input type="text" class="form-input" id="dramaTitle" required placeholder="Ví dụ: Suýt mất tiền ăn cả tháng vì bẫy quà tặng AirPods">
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="dramaContent">Chi Tiết Sự Việc & Bằng Chứng:</label>
+          <textarea class="form-input" id="dramaContent" rows="4" required placeholder="Kể rõ cách shop giăng bẫy, shipper giao gì, bạn xử lý thế nào..."></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-danger" style="width: 100%;">
+          <i class="fa-solid fa-triangle-exclamation"></i> Đăng Bài Cảnh Báo Ngay
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- 4. Modal Bình Luận Post -->
+  <div class="modal-backdrop" id="commentsModal" role="dialog" aria-modal="true">
+    <div class="modal-container">
+      <div class="modal-header">
+        <h3 class="modal-title" id="commentsModalTitle">Bình Luận</h3>
+        <button class="modal-close-btn" aria-label="Close modal"><i class="fa-solid fa-xmark"></i></button>
+      </div>
+      <div id="commentsModalList" style="max-height: 280px; overflow-y: auto; margin-bottom: 16px;"></div>
+      <form id="newCommentForm" style="display: flex; gap: 8px;">
+        <input type="text" class="form-input" id="commentTextInput" required placeholder="Chia sẻ góc nhìn hoặc hỏi thêm kinh nghiệm..." style="flex: 1;">
+        <button type="submit" class="btn btn-primary btn-sm">
+          <i class="fa-solid fa-paper-plane"></i>
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- 5. Modal Kết Quả Quiz -->
+  <div class="modal-backdrop" id="quizResultModal" role="dialog" aria-modal="true">
+    <div class="modal-container" style="max-width: 480px;">
+      <div class="modal-header">
+        <h3 class="modal-title" id="quizModalTitle">Kết Quả Quiz</h3>
+        <button class="modal-close-btn" aria-label="Close modal"><i class="fa-solid fa-xmark"></i></button>
+      </div>
+      <div id="quizModalContent"></div>
+    </div>
+  </div>
+
+  <!-- MOBILE BOTTOM DOCK NAVIGATION -->
+  <nav class="mobile-dock" aria-label="Mobile Navigation">
+    <button class="dock-btn active" data-tab="home">
+      <i class="fa-solid fa-house"></i>
+      <span>Trang chủ</span>
+    </button>
+    <button class="dock-btn" data-tab="shops">
+      <i class="fa-solid fa-store"></i>
+      <span>Top Shop</span>
+    </button>
+    <button class="dock-btn" data-tab="drama">
+      <i class="fa-solid fa-triangle-exclamation"></i>
+      <span>Bóc Phốt</span>
+    </button>
+    <button class="dock-btn" data-tab="minigame">
+      <i class="fa-solid fa-gamepad"></i>
+      <span>Quiz Game</span>
+    </button>
+    <button class="dock-btn" data-tab="certificate">
+      <i class="fa-solid fa-certificate"></i>
+      <span>Chứng Nhận</span>
+    </button>
+    <button class="dock-btn" data-tab="handbook">
+      <i class="fa-solid fa-book-open"></i>
+      <span>Cẩm Nang</span>
+    </button>
+  </nav>
+
+  <!-- TOAST NOTIFICATION CONTAINER -->
+  <div class="toast-container" id="toastContainer" aria-live="polite"></div>
+
+  <!-- FOOTER -->
+  <footer class="smart-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 12px;">
+            <img src="assets/logo.jpg" alt="Logo" style="width: 38px; height: 38px; border-radius: var(--radius-sm);">
+            <h4 style="margin: 0;">SMART CLICK</h4>
+          </div>
+          <p>
+            Chiến dịch truyền thông tiêu dùng thông minh dành cho sinh viên. 
+            Mục tiêu: Hình thành thói quen kiểm tra người bán, đọc review thật, so sánh giá và tránh rủi ro lừa đảo online.
+          </p>
+          <div style="font-size: 0.8rem; color: var(--brand-orange); font-weight: 700;">
+            Slogan: "Click khôn ngoan – Mua an toàn"
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h5>Liên Kết Nhanh</h5>
+          <ul class="footer-links">
+            <li><a href="javascript:void(0)" data-nav-target="home"><i class="fa-solid fa-chevron-right"></i> Trang Chủ & Khảo Sát</a></li>
+            <li><a href="javascript:void(0)" data-nav-target="shops"><i class="fa-solid fa-chevron-right"></i> Top Shop Bình Chọn</a></li>
+            <li><a href="javascript:void(0)" data-nav-target="drama"><i class="fa-solid fa-chevron-right"></i> Góc Cảnh Báo Lừa Đảo</a></li>
+            <li><a href="javascript:void(0)" data-nav-target="minigame"><i class="fa-solid fa-chevron-right"></i> Minigame Bóc Review Ảo</a></li>
+            <li><a href="javascript:void(0)" data-nav-target="certificate"><i class="fa-solid fa-chevron-right"></i> Tạo Chứng Nhận Điện Tử</a></li>
+            <li><a href="javascript:void(0)" data-nav-target="handbook"><i class="fa-solid fa-chevron-right"></i> Cẩm Nang Mua Sắm 30s</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h5>Đơn Vị Đồng Hành</h5>
+          <p style="font-size: 0.84rem; color: var(--text-secondary); margin-bottom: 8px;">
+            <strong>University of Transport Technology (UTT)</strong><br>
+            Trường Đại học Công nghệ Giao thông Vận tải
+          </p>
+          <div style="font-size: 0.78rem; color: var(--text-muted); line-height: 1.5;">
+            Hashtag chiến dịch:<br>
+            <span style="color: #60a5fa;">#ClickKhonNgoanMuaAnToan</span><br>
+            <span style="color: #60a5fa;">#SinhVienTieuDungThongMinh</span><br>
+            <span style="color: #60a5fa;">#CheckTruocKhiMua #SmartClick</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>© 2026 Smart Click - Dự án truyền thông phi lợi nhuận vì quyền lợi người tiêu dùng sinh viên.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
